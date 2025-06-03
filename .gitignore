@@ -1,0 +1,32 @@
+# Build artifacts
+build/
+cmake-build-*/
+
+# CMake temporary files
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+
+# Compiled libraries and executables
+*.so
+*.dll
+*.dylib
+*.a
+*.lib
+*.exe
+*.out
+*.o
+*.obj
+
+# IDE specific files
+.idea/
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
