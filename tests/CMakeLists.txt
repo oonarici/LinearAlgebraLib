@@ -5,6 +5,7 @@ find_package(GTest REQUIRED)
 add_executable(
         LinearAlgebraTests
         VectorTest.cpp
+        MatrixTest.cpp
 )
 
 target_link_libraries(LinearAlgebraTests PRIVATE

@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(LinearAlgebraLib SHARED
         src/Vector.cpp
         src/Vector.cpp
+        src/Matrix.cpp
 )
 
 # Include directories (public API)
