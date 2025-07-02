@@ -63,36 +63,24 @@ namespace lalib {
         return m_data[2];
     }
 
-    template<>
-    Vector3D<int> Vector3D<int>::operator+(const Vector3D &o) const {
+    template<typename T>
+    Vector3D<T> Vector3D<T>::operator+(const Vector3D &other) const {
 
-        return {m_data[0] + o[0], m_data[1] + o[1], m_data[2] + o[2]};
-    }
-
-    template<>
-    Vector3D<float> Vector3D<float>::operator+(const Vector3D &o) const {
-
-        return {m_data[0] + o[0], m_data[1] + o[1], m_data[2] + o[2]};
-    }
-
-    template<>
-    Vector3D<double> Vector3D<double>::operator+(const Vector3D &o) const {
-
-        return {m_data[0] + o[0], m_data[1] + o[1], m_data[2] + o[2]};
+        return {m_data[0] + other[0], m_data[1] + other[1], m_data[2] + other[2]};
     }
 
     template<typename T>
-    Vector3D<T> Vector3D<T>::operator-(const Vector3D &o) const {
-        return {m_data[0] - o[0], m_data[1] - o[1], m_data[2] - o[2]};
+    Vector3D<T> Vector3D<T>::operator-(const Vector3D& other) const {
+        return {m_data[0] - other[0], m_data[1] - other[1], m_data[2] - other[2]};
     }
 
     template<typename T>
-    Vector3D<T> Vector3D<T>::operator*(T s) const {
-        return {m_data[0] * s, m_data[1] * s, m_data[2] * s};
+    Vector3D<T> Vector3D<T>::operator*(const T& other) const {
+        return {m_data[0] * other, m_data[1] * other, m_data[2] * other};
     }
 
     template<typename T>
-    T Vector3D<T>::dot(const Vector3D &o) const {
+    T Vector3D<T>::dot(const Vector3D& o) const {
 
         return m_data[0] * o[0] +
                m_data[1] * o[1] +
@@ -100,12 +88,19 @@ namespace lalib {
     }
 
     template<typename T>
-    bool Vector3D<T>::operator==(const Vector3D &o) const {
-        return m_data == o.m_data;
+    Vector3D<T> Vector3D<T>::cross(const Vector3D &other) const {
+
+        Vector3D<T> result_vector;
+        result_vector[0] = m_data[1] * other[2] - m_data[2] * other[1];
+        result_vector[1] = m_data[2] * other[0] - m_data[0] * other[2];
+        result_vector[2] = m_data[0] * other[1] - m_data[1] * other[0];
+
+        return result_vector;
     }
 
     template<typename T>
-    bool Vector3D<T>::operator!=(const Vector3D &o) const {
-        return !(*this == o);
+    bool Vector3D<T>::operator==(const Vector3D &o) const {
+
+        return m_data == o.m_data;
     }
 } // namespace lalib

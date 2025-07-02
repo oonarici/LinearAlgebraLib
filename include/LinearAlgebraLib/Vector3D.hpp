@@ -9,7 +9,6 @@ namespace lalib {
     template<typename T>
     class Vector3D {
 
-    private:
         std::array<T, 3> m_data;
 
     public:
@@ -26,12 +25,13 @@ namespace lalib {
 
         Vector3D operator+(const Vector3D& other) const;
         Vector3D operator-(const Vector3D& other) const;
-        Vector3D operator*(T scalar) const;
+        Vector3D<T> operator*(const T& other) const;
         T dot(const Vector3D& other) const;
+        Vector3D<T> cross(const Vector3D& other) const;
 
         bool operator==(const Vector3D& other) const;
-        bool operator!=(const Vector3D& other) const;
     };
     template class lalib::Vector3D<int>;
     template class lalib::Vector3D<float>;
+    template class lalib::Vector3D<double>;
 } // namespace lalib
