@@ -4,17 +4,18 @@ project(LinearAlgebraLib VERSION 0.1.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+
+
 # Build the shared library (.so)
 add_library(LinearAlgebraLib SHARED
-        src/Vector3D.cpp
-        src/Matrix.cpp
-        include/LinearAlgebraLib/Vector3D.hpp
+        ${CMAKE_SOURCE_DIR}/src/Vector3D.cpp
+        ${CMAKE_SOURCE_DIR}/src//Matrix.cpp
 )
 
 # Include directories (public API)
 target_include_directories(LinearAlgebraLib PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:include>
+        ${CMAKE_SOURCE_DIR}/include/
+        ${CMAKE_SOURCE_DIR}/include/LinearAlgebraLib/
 )
 
 find_package(GTest REQUIRED)
