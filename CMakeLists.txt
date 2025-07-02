@@ -6,9 +6,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Build the shared library (.so)
 add_library(LinearAlgebraLib SHARED
-        src/Vector.cpp
-        src/Vector.cpp
+        src/Vector3D.cpp
         src/Matrix.cpp
+        include/LinearAlgebraLib/Vector3D.hpp
 )
 
 # Include directories (public API)
@@ -16,6 +16,8 @@ target_include_directories(LinearAlgebraLib PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
 )
+
+find_package(GTest REQUIRED)
 
 # Visibility settings (Linux/macOS optimization)
 target_compile_options(LinearAlgebraLib PRIVATE

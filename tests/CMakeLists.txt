@@ -2,15 +2,16 @@
 
 find_package(GTest REQUIRED)
 
-add_executable(
-        LinearAlgebraTests
+add_executable(LinearAlgebraTests
         VectorTest.cpp
         MatrixTest.cpp
 )
 
-target_link_libraries(LinearAlgebraTests PRIVATE
-        LinearAlgebraLib
-        GTest::gtest_main
+target_link_libraries(LinearAlgebraTests
+        PRIVATE
+        LinearAlgebraLib   #  .so
+        GTest::gtest       # GTest core
+        GTest::gtest_main  # InitGoogleTest ve main()
 )
 
 include(GoogleTest)
