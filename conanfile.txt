@@ -1,0 +1,13 @@
+[requires]
+gtest/1.14.0
+
+[tool_requires]
+cmake/3.29.3
+
+[generators]
+CMakeDeps
+CMakeToolchain
+VirtualBuildEnv
+
+[layout]
+cmake_layout
